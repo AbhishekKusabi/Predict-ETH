@@ -2,13 +2,15 @@ import pandas as pd
 from sklearn.ensemble import RandomForestRegressor, ExtraTreesRegressor
 
 # Load historical Ethereum price data
-ethereum_data = pd.read_csv('Ethereum Historical Data.csv')
+ethereum_data = pd.read_csv('ETH-USD.csv')
+
 
 # Data preprocessing
 ethereum_data['Date'] = pd.to_datetime(ethereum_data['Date'], dayfirst=True)
 ethereum_data['Price'] = ethereum_data['Price'].astype(float)
 ethereum_data['High'] = ethereum_data['High'].astype(float)
 ethereum_data['Low'] = ethereum_data['Low'].astype(float)
+
 
 # Extract date features
 ethereum_data['Year'] = ethereum_data['Date'].dt.year
