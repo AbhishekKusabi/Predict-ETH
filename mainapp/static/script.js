@@ -97,7 +97,33 @@ function setRequestHeader(){
     });
 }
 
-// 'use strict';
+'use strict';
+
+  // Function to scroll to a specific section when a navbar link is clicked
+  function scrollToSection(sectionId) {
+    document.getElementById(sectionId).scrollIntoView({
+        behavior: 'smooth'
+    });
+}
+
+// Add event listeners to navbar links
+document.addEventListener('DOMContentLoaded', function() {
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const sectionId = link.getAttribute('href').substring(1);
+            scrollToSection(sectionId);
+        });
+    });
+});
+
+function scrollToTop() {
+  window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+  });
+}
 
 // // SELECTORS:
 // const modal = document.querySelector('.modal');
