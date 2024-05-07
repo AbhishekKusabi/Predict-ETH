@@ -85,3 +85,17 @@ function scrollToTop() {
   });
 }
 
+// document.getElementById("contact-form").addEventListener("submit", function(event) {
+//     event.preventDefault(); // Prevent the form from submitting
+
+//     // Get form values
+//     var firstName = document.querySelector(".news-first-name").value;
+//     var middleName = document.querySelector(".news-middle-name").value;
+//     var email = document.querySelector(".news-email").value;
+//     var message = document.querySelector(".news-message").value;
+
+//     // Display a message
+//     var messageContainer = document.getElementById("message");
+//     messageContainer.textContent = "Thank you for your message, " + firstName + "! We have received your details.";
+// });
+
