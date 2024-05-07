@@ -545,139 +545,130 @@ body{
     flex: 1;
 }
 
-.image-container {
+.about-image-container {
     text-align: center; /* Align image in the center horizontally */
 }
 
-.section-image {
+.about-section-image {
     max-width: 100%; /* Ensure image doesn't exceed container width */
     height: auto; /* Maintain aspect ratio */
 }
 
 
-.newsletter-container{
+.newsletter-container {
     background-color: var(--light-gray);
-    
     max-width: 1280px;
-    height: 40vh;
+    height: auto; /* Change height to auto to accommodate variable content */
     margin: 0 auto;
+    padding: 20px; /* Add padding for better spacing */
+    overflow: hidden; /* Add overflow hidden to prevent overflow issues */
+    border-radius: 8px; /* Add border radius for rounded corners */
 }
 
-.newsletter-content{
+.newsletter-content {
     display: flex;
-    flex-direction: row;
-    /* background-color: var(--light-gray); */
+    flex-direction: column; /* Change flex-direction to column for proper stacking */
     height: 100%;
-    border-radius: 8px;
-    overflow: hidden;
 }
 
-.news-left{
+.news-left {
     height: 100%;
-    width: 50%;
-    display: none;
+    width: 100%; /* Set width to 100% to occupy the full width */
     position: relative;
 }
-.news-left img{
+
+.news-left img {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    object-position: center;
+    object-fit: cover; /* Ensure the image covers the entire container */
 }
 
-.news-right{
+.news-right {
     display: flex;
     flex-direction: column;
     gap: 1rem;
     padding: 0.5rem;
     justify-content: center;
     align-items: flex-start;
-    width: 98%;
+    width: 100%; /* Set width to 100% to occupy the full width */
 }
 
-@media screen and (min-width:640px) {
-    .news-left{
-        display: block;
-        width: 50%;
-    }
-    .news-right{
-        width: 50%;
-    }
-    .newsletter-container{
-        padding: 2rem;
-    }
+.news-info {
+    padding: 0 3rem;
 }
 
-.news-info{
-    padding:0 3rem;
-}
-
-.news-title{
+.news-title {
     font-size: 1.5rem;
     font-weight: bold;
     color: var(--primary-color);
     text-align: left;
 }
 
-.news-desc{
+.news-desc {
     text-align: left;
     color: #777;
 }
 
-.news-form{
+.news-form {
     padding: 0 3rem;
     display: flex;
     flex-wrap: wrap;
-    margin-bottom: 1rem;
     gap: 0.6rem;
 }
 
-
-.news-email{
+.news-email,
+.news-message,
+.news-first-name,
+.news-middle-name {
     background-color: var(--background-color);
-    /* width: 100%; */
-    color: #333;
+    color: var(--light-gray);
     outline: none;
     border: 1px solid #ccc;
     border-radius: 4px;
     padding: 0.5rem 0.75rem;
+    width: calc(50% - 0.3rem); /* Adjust width to fit two inputs in one row */
 }
 
-.news-email:focus{
+.news-email:focus,
+.news-message:focus,
+.news-first-name:focus,
+.news-middle-name:focus {
     border-color: #2563eb;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-.news-send-button{
+/* All the existing CSS styles remain unchanged */
+
+.news-send-button {
     background-color: var(--primary-color);
     color: var(--background-color);
     border: none;
     border-radius: 0.25rem;
     padding: 0.5rem 1rem;
+    cursor: pointer; 
+    margin-top: 1rem; 
+    display: block; 
+   margin-left:13rem;
 }
 
-.news-send-button:hover{
-    background-color: var(--link-color);
+.news-send-button:hover {
+    background-color:#5254f8 ;
 }
 
-.privacy-policy{
+
+
+.privacy-policy {
     font-size: 0.76rem;
-    padding: 0 3rem;
     color: #777;
 }
 
-.news-link{
+.news-link {
     text-decoration: underline;
     color: #2563eb;
 }
 
-@media screen and (min-width:640px) {
-    .news-title{
-        font-size: 2.5rem;
-    }
-}
 
 .footer-container{
     background-color: var(--background-color);

@@ -241,8 +241,8 @@
             </p>
         </div>
         <div class="about-content-right"> <!-- Switched content-left and content-right -->
-            <div class="image-container">
-                <img src="images\Human Working.png" alt="sectionImage" class="section-image" />
+            <div class="about-image-container">
+                <img src="images\Human Working.png" alt="sectionImage" class="about-section-image" />
             </div>
         </div>
     </section>
@@ -251,29 +251,30 @@
 
 <div class="newsletter-container" id="contact">
     <div class="newsletter-content">
-        <div class="news-left">
+        <div class="news-right">
             <div class="news-info">
-                <h2 class="news-title">Contact Us </h2>
+                <h2 class="news-title">Contact Us</h2>
             </div>
-            <form class="news-form">
-                <input class="news-email" placeholder="Email" />
-                <button class="news-send-button">
-                    Send
-                </button>
+            <form class="news-form" id="contact-form">
+                <input type="text" class="news-first-name" placeholder="First Name" />
+                <input type="text" class="news-middle-name" placeholder="Middle Name" />
+                <input type="email" class="news-email" placeholder="Email" />
+                <textarea class="news-message" placeholder="Message"></textarea>
             </form>
+            <button type="submit" class="news-send-button">Submit</button>
             <div class="privacy-policy">
-                By signing up to our newsletter you agree to our
-                <a class="news-link">
-                    Terms of Service
-                </a>
+                By signing up you agree to our
+                <a href="#" class="news-link">Terms of Service</a>
                 and
-                <a class="news-link">
-                    Privacy policy
-                </a>
+                <a href="#" class="news-link">Privacy policy</a>
             </div>
         </div>
     </div>
 </div>
+<div id="message"></div>
+
+
+
 
 <div class="footer-container">
     <footer class="footer">
