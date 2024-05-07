@@ -65,7 +65,7 @@ body{
 
 }
 
-@media screen and (max-width:976px) {
+@media screen and (min-width:786px) {
     .nav{
         display: flex;
     }
@@ -114,11 +114,11 @@ body{
   font-weight: 600;
 }
 
-@media screen and (max-width:768px) {
+/* @media screen and (min-width:768px) {
     .menu-button{
         display: block;
       }
-}
+} */
 
 .menu-icon{
     height: 1.5rem;
@@ -139,6 +139,7 @@ body{
     text-align: center;
     animation: slideFromLeft 1s ease forwards;
     opacity: 0;
+    align-items: flex-start;
 }
 
 @keyframes slideFromLeft {
@@ -210,7 +211,7 @@ body{
 .content-right{
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: right;
 }
 
 
@@ -777,8 +778,8 @@ ul{
     position: sticky;
     bottom: 20px;
     right: 20px;
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     background-color: var(--primary-color);
     color: var(--background-color);
@@ -787,7 +788,7 @@ ul{
     outline: none;
     cursor: pointer;
     z-index: 999;
-    margin-left: 42rem;
+    margin-left: 872px;
 }
 
 .scroll-to-top:hover {
