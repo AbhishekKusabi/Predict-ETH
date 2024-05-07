@@ -114,11 +114,11 @@ body{
   font-weight: 600;
 }
 
-/* @media screen and (min-width:768px) {
+@media screen and (max-width:768px) {
     .menu-button{
         display: block;
       }
-} */
+}
 
 .menu-icon{
     height: 1.5rem;
@@ -182,7 +182,6 @@ body{
     justify-content: center;
 }
 
-.start-button,
 .tour-button{
     
     border: none;
@@ -196,15 +195,11 @@ body{
 }
 
 .tour-button{
-    background-color: var(--dark-gray);
-}
-
-.start-button:hover{
-    background-color: #5254f8;
+    background-color: var(--primary-color);
 }
 
 .tour-button:hover{
-    background-color: var(--gray);
+    background-color: #5254f8;
 }
 
 
