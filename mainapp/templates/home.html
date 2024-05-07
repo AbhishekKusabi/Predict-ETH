@@ -223,13 +223,8 @@
 </div>
 
 <div class="about-us" id="about">
-    <section class="main-section">
-        <div class="content-right">
-            <div class="image-container">
-                <img src="images\Human Working.png" alt="sectionImage" class="section-image" />
-            </div>
-        </div>
-        <div class="content-left">
+    <section class="about-main-section">
+        <div class="about-content-left"> <!-- Switched content-left and content-right -->
             <h2 class="about-us-title">About Us</h2>
             <p class="about-us-text">
                 Welcome to Predict ETH, your trusted source for accurate and insightful Ethereum price predictions. At Predict ETH, we're passionate about empowering cryptocurrency traders with the information they need to make informed decisions in the dynamic world of digital assets.
@@ -245,8 +240,14 @@
                 Our mission at Predict ETH is simple: to provide reliable Ethereum price predictions backed by robust analysis and cutting-edge technology. We understand the challenges that traders face in navigating the volatile cryptocurrency markets, and we're committed to delivering actionable insights that help you stay ahead of the curve.
             </p>
         </div>
+        <div class="about-content-right"> <!-- Switched content-left and content-right -->
+            <div class="image-container">
+                <img src="images\Human Working.png" alt="sectionImage" class="section-image" />
+            </div>
+        </div>
     </section>
 </div>
+
 
 <div class="newsletter-container" id="contact">
     <div class="newsletter-content">
@@ -278,10 +279,10 @@
     <footer class="footer">
         <div class="footer-top">
             <div class="comp-logo">
-                <a class="logo-link" href="#">
-                    <img class="logo-svg" src="images\favicon-removebg-preview.png"/>
-                    Predict ETH
-                </a>
+                <div class="logo-link">
+                                    <img class="logo-svg" src="images\favicon-removebg-preview.png"/>
+                    <h3>Predict ETH</h3>
+                </div>
             </div>
         </div>
         <div class="footer-grid">

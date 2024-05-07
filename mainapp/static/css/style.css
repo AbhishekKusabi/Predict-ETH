@@ -526,6 +526,35 @@ body{
     font-size: 0.875rem;
 }
 
+.about-us {
+    margin: 20px; /* Adjust margin as needed */
+}
+
+.about-main-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.about-content-left {
+    flex: 1;
+    margin-right: 20px; /* Adjust margin between image and content */
+}
+
+.about-content-right {
+    flex: 1;
+}
+
+.image-container {
+    text-align: center; /* Align image in the center horizontally */
+}
+
+.section-image {
+    max-width: 100%; /* Ensure image doesn't exceed container width */
+    height: auto; /* Maintain aspect ratio */
+}
+
+
 .newsletter-container{
     background-color: var(--light-gray);
     
@@ -676,8 +705,8 @@ body{
 }
 
 .logo-svg{
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     
 }
 
@@ -691,7 +720,7 @@ body{
     justify-content: center;
     align-items: center;
     gap: 0.8rem;
-    font-size: 1.28rem;
+    font-size: 1rem;
     font-weight: bold;
     color: var(--light-gray);
 }
@@ -746,7 +775,7 @@ ul{
     border-top: 1px solid #E5E7EB;
 }
 
-@media screen and (max-width:1080px) {
+@media screen and (min-width:1080px) {
     .footer{
         flex-direction: column;
         align-items: center;
@@ -760,9 +789,9 @@ ul{
     }
 }
 
-@media screen and (max-width:850px) {
+@media screen and (min-width:850px) {
     .footer-top{
-        padding-left: 1rem;
+        padding-left:2px;
     }
     .footer-grid{
         grid-template-columns: repeat(2,1fr);
