@@ -36,31 +36,30 @@ function setRequestHeader(){
 }
 
 function updateValue(){
-    var data = {
-        'date': document.getElementById("date").value,
-    };
+    const selectedDate = document.getElementById('date').value;
     setRequestHeader();
 
     $.ajax({
         dataType: 'json',
         type: 'POST',
-        url: "/predict/",
-        data: data,
+        url: "/predict_ethereum_price/",
+        data: { date: selectedDate },  // Pass selected date as data
         success: function (data) {
             console.log("Success:", data);
             document.getElementById("result_model").innerHTML = "$" + data.predicted_price;
-            document.getElementById("result_high").innerHTML = "High: $" + data.predicted_high;             
-            document.getElementById("result_low").innerHTML = "Low: $" + data.predicted_low;
+            document.getElementById("result_high").innerHTML = "High: $" + data.predicted_price;             
+            document.getElementById("result_low").innerHTML = "Low: $" + data.predicted_price;
         },
         error: function (jqXHR) {
             console.log("Error:", jqXHR);
-            alert("updated failed!! ")
+            alert("Update failed!");
         }
     });
 }
 
-  // Function to scroll to a specific section when a navbar link is clicked
-  function scrollToSection(sectionId) {
+
+// Function to scroll to a specific section when a navbar link is clicked
+function scrollToSection(sectionId) {
     document.getElementById(sectionId).scrollIntoView({
         behavior: 'smooth'
     });
@@ -79,23 +78,116 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function scrollToTop() {
-  window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-  });
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
 }
 
-// document.getElementById("contact-form").addEventListener("submit", function(event) {
-//     event.preventDefault(); // Prevent the form from submitting
 
-//     // Get form values
-//     var firstName = document.querySelector(".news-first-name").value;
-//     var middleName = document.querySelector(".news-middle-name").value;
-//     var email = document.querySelector(".news-email").value;
-//     var message = document.querySelector(".news-message").value;
 
-//     // Display a message
-//     var messageContainer = document.getElementById("message");
-//     messageContainer.textContent = "Thank you for your message, " + firstName + "! We have received your details.";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// 'use strict';
+
+// // Function to GET csrftoken from Cookie
+// function getCookie(name) {
+//     var cookieValue = null;
+//     if (document.cookie && document.cookie !== '') {
+//         var cookies = document.cookie.split(';');
+//         for (var i = 0; i < cookies.length; i++) {
+//             var cookie = jQuery.trim(cookies[i]);
+//             // Does this cookie string begin with the name we want?
+//             if (cookie.substring(0, name.length + 1) === (name + '=')) {
+//                 cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+//                 break;
+//             }
+//         }
+//     }
+//     return cookieValue;
+// }
+
+// var csrftoken = getCookie('csrftoken');
+
+// function csrfSafeMethod(method) {
+//     // these HTTP methods do not require CSRF protection
+//     return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+// }
+
+// // Function to set Request Header with `CSRFTOKEN`
+// function setRequestHeader(){
+//     $.ajaxSetup({
+//         beforeSend: function(xhr, settings) {
+//             if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+//                 xhr.setRequestHeader("X-CSRFToken", csrftoken);
+//             }
+//         }
+//     });
+// }
+
+// function updateValue(){
+//     var data = {
+//         'date': document.getElementById("date").value,
+//     };
+//     setRequestHeader();
+
+//     $.ajax({
+//         dataType: 'json',
+//         type: 'POST',
+//         url: "/predict/",
+//         data: data,
+//         success: function (data) {
+//             console.log("Success:", data);
+//             document.getElementById("result_model").innerHTML = "$" + data.predicted_price;
+//             document.getElementById("result_high").innerHTML = "High: $" + data.predicted_high;             
+//             document.getElementById("result_low").innerHTML = "Low: $" + data.predicted_low;
+//         },
+//         error: function (jqXHR) {
+//             console.log("Error:", jqXHR);
+//             alert("updated failed!! ")
+//         }
+//     });
+// }
+
+//   // Function to scroll to a specific section when a navbar link is clicked
+//   function scrollToSection(sectionId) {
+//     document.getElementById(sectionId).scrollIntoView({
+//         behavior: 'smooth'
+//     });
+// }
+
+// // Add event listeners to navbar links
+// document.addEventListener('DOMContentLoaded', function() {
+//     const navLinks = document.querySelectorAll('.nav-link');
+//     navLinks.forEach(link => {
+//         link.addEventListener('click', function(e) {
+//             e.preventDefault();
+//             const sectionId = link.getAttribute('href').substring(1);
+//             scrollToSection(sectionId);
+//         });
+//     });
 // });
+
+// function scrollToTop() {
+//   window.scrollTo({
+//       top: 0,
+//       behavior: 'smooth'
+//   });
+// }
 

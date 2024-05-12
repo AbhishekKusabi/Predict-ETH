@@ -1,7 +1,9 @@
-from http.client import HTTPResponse
-from django.shortcuts import render
+# from http.client import HTTPResponse
 from django.http import HttpResponse, JsonResponse
-from .prediction import predict_prices_for_future_random_forest
+import requests
+from django.shortcuts import render
+from datetime import datetime
+from .prediction import predict_prices_for_future_random_forest, predict_prices_for_future_extra_trees
 
 def home(request):
     return render(request,'home.html')
@@ -23,3 +25,30 @@ def predict(request):
 
     else:
         return HttpResponse(status=405)
+    
+    
+
+
+def predict_ethereum_price(request):
+    # Fetch current Ethereum price from an API
+    response = requests.get('https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd')
+    if response.status_code == 200:
+        actual_price = response.json()['ethereum']['usd']
+    else:
+        actual_price = None
+
+    # Get the current date
+    current_date = datetime.now().strftime('%Y-%m-%d')
+
+    # Call prediction functions for the current date
+    rf_predicted_price, _, _ = predict_prices_for_future_random_forest(current_date)
+    et_predicted_price, _, _ = predict_prices_for_future_extra_trees(current_date)
+
+    # Pass predicted and actual prices to the template
+    context = {
+        'rf_predicted_price': rf_predicted_price,
+        'et_predicted_price': et_predicted_price,
+        'actual_price': actual_price,
+    }
+
+    return render(request, 'home.html', context)

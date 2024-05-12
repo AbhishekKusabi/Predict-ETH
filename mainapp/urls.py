@@ -5,5 +5,5 @@ app_name = 'mainapp'
 
 urlpatterns = [
     path('',views.home,name='home'),
-    path('predict/',views.predict,name='predict'),
+    path('predict_ethereum_price/',views.predict,name='predict'),
 ]
