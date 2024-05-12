@@ -78,7 +78,7 @@ if ethereum_data is not None:
      predicted_price = best_rf_model.predict(scaled_features_for_date)[0]
 
     # Return tuple of predicted price and default value for predicted high and low
-     return predicted_price, predicted_price+100, 0.0
+     return predicted_price, predicted_price+100, predicted_price-100
 
 
 
@@ -96,7 +96,9 @@ if ethereum_data is not None:
 
         # Make prediction
         predicted_price = best_et_model.predict(scaled_features_for_date)[0]
-        return predicted_price
+
+        return predicted_price, predicted_price+100, predicted_price-100
+       
 else:
     print("Failed to fetch Ethereum data from the CoinGecko API.")
 

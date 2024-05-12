@@ -47,8 +47,8 @@ function updateValue(){
         success: function (data) {
             console.log("Success:", data);
             document.getElementById("result_model").innerHTML = "$" + data.predicted_price;
-            document.getElementById("result_high").innerHTML = "High: $" + data.predicted_price;             
-            document.getElementById("result_low").innerHTML = "Low: $" + data.predicted_price;
+            document.getElementById("result_high").innerHTML = "High: $" + data.predicted_high;             
+            document.getElementById("result_low").innerHTML = "Low: $" + data.predicted_low;
         },
         error: function (jqXHR) {
             console.log("Error:", jqXHR);
