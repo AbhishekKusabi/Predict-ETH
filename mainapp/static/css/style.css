@@ -2,30 +2,25 @@
 
 
 :root {
-    --primary-color: #6366F1;
-    --accent-color: #3f83f8;
-    --text-color: #718096;
-    --link-color: #2563eb;
-    --background-color: #000000;
-    --light-gray: #F4EAE0;
-    --gray: #808080;
-    --dark-gray: #555;
+    --light-page-color: #F4EAE0; /* Light theme background color */
+    --light-text-color: #000000; /* Light theme text color */
+    --dark-page-color: #000000; /* Dark theme background color */
+    --dark-text-color: #F4EAE0; /* Dark theme text color */
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    font-family: 'Inter', sans-serif;
-    text-decoration: none;
-    scrollbar-width: none;
-}
-
-body{
+body {
     height: 100vh;
     text-align: center;
-    background-color: var(--background-color);
+    background-color: var(--light-page-color); /* Set the default background color */
+    color: var(--light-text-color); /* Set the default text color */
     padding: 0.1rem;
 }
+
+body.dark-theme {
+    background-color: var(--dark-page-color); /* Change background color for dark theme */
+    color: var(--dark-text-color); /* Change text color for dark theme */
+}
+
 
 .header-content{
     max-width: 1280px;
