@@ -43,7 +43,7 @@ function updateValue(){
         dataType: 'json',
         type: 'POST',
         url: "/predict_ethereum_price/",
-        data: { date: selectedDate },  // Pass selected date as data
+        data: { date: selectedDate },  
         success: function (data) {
             console.log("Success:", data);
             document.getElementById("result_model").innerHTML = "$" + data.predicted_price;
@@ -84,7 +84,8 @@ function scrollToTop() {
     });
 }
 
-
-
+window.addEventListener('load', function() {
+    window.scrollTo(0, 0);
+});
 
 

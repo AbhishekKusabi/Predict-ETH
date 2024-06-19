@@ -81,8 +81,8 @@ body.dark-theme {
     display: none;
     border: none;
     border-radius: 0.375rem;
-    background-color: var(--primary-color);
-    color: var(--background-color);
+    background-color: var(--dark-page-color);
+    color: white;
     transform: all  0.1s;
     padding: 0.75rem 1.5rem;
     font-size: 1rem;
@@ -181,22 +181,14 @@ body.dark-theme {
     
     border: none;
     border-radius: 0.375rem;
-    background-color: var(--primary-color);
-    color: var(--background-color);
+    background-color: black;
+    color: white;
     transform: all  0.1s;
     padding: 0.75rem 1.5rem;
     font-size: 1rem;
     font-weight: 600;
+    text-decoration: none;
 }
-
-.tour-button{
-    background-color: var(--primary-color);
-}
-
-.tour-button:hover{
-    background-color: #5254f8;
-}
-
 
 .content-right{
     display: flex;
@@ -219,6 +211,9 @@ body.dark-theme {
 }
 
 @media screen and (max-width:768px) {
+    .section-image{
+      display: none;
+    }
     .main-section{
         flex-direction: row;
     }
@@ -364,29 +359,29 @@ body.dark-theme {
 }
 
 .feature-title{
-    color: white;
+    color: #111;
     font-weight: bold;
     font-size: 1.3rem;
 }
 
 .feature-description{
-    color: white;
+    color: #111;
 }
 
 .feature-card:nth-child(1){
-    background-color: #4a90e2;
+    background-color:var(--light-page-color);
 }
 
 .feature-card:nth-child(2){
-    background-color: #FF6289;
+    background-color: var(--light-page-color);
 }
 
 .feature-card:nth-child(3){
-    background-color: #fcbf58;
+    background-color: var(--light-page-color);
 }
 
 .feature-card:nth-child(4){
-    background-color: #44bfc3;
+    background-color: var(--light-page-color);
 }
 
 @media screen and (max-width:768px) {
@@ -483,12 +478,16 @@ body.dark-theme {
     font-size: medium;
 }
 
+
+.date{
+    margin-bottom: 1rem;
+}
 .model-selection {
     padding: 20px;
     text-align: center;
     border: 1px solid #181616;
-    margin: 20px auto; /* Add margin and center the box horizontally */
-    width: 50%; /* Adjust the width as needed */
+    margin: 20px ; 
+    width: 50%; 
 }
 .result-box {
     border: 1px solid #ccc;
@@ -665,143 +664,105 @@ body.dark-theme {
 }
 
 
-.footer-container{
-    background-color: var(--background-color);
-    margin: 0 auto;
-    padding: 0 2rem;
-    display: flex;
-    flex-direction: column;
-    max-width: 1280px;
+footer{
+    background-color: var(--light-page-color);
 }
-
-.footer{
-    max-width: 1280px;
-    padding:1.2rem 2.4rem;
-    text-align: left;
-    display: flex;
-    justify-content: space-between;
-    padding-right: 2rem;
+.footerContainer{
+    width: 100%;
+    padding: 70px 30px 20px ;
+    color: #111;
 }
-
-.footer-top{
-    width: 34%;
-    display: flex;
-    flex-direction: column;
-    gap: 1.65rem;
-}
-
-.logo-svg{
-    width: 40px;
-    height: 40px;
-    
-}
-
-.comp-logo{
-    display: flex;
-    justify-content: flex-start;
-    margin-bottom: -1.9rem;
-}
-.logo-link{
+.socialIcons{
     display: flex;
     justify-content: center;
-    align-items: center;
-    gap: 0.8rem;
-    font-size: 1rem;
-    font-weight: bold;
-    color: var(--light-gray);
 }
-.social-icon{
-    width: 1.5rem;
-    height: 1.5rem;
+.socialIcons a{
+    text-decoration: none;
+    padding:  10px;
+    background-color: white;
+    margin: 10px;
+    border-radius: 50%;
 }
-.filler-text{
-    font-size: 1rem;
-    color: #777;
+.socialIcons a i{
+    font-size: 2em;
+    color: black;
+    opacity: 0,9;
 }
-.social{
+/* Hover affect on social media icon */
+.socialIcons a:hover{
+    background-color: #111;
+    transition: 0.5s;
+}
+.socialIcons a:hover i{
+    color: white;
+    transition: 0.5s;
+}
+.footerNav{
+    margin: 30px 0;
+    color: #111;
+}
+.footerNav ul{
     display: flex;
-    gap: 0.8rem;
-}
-.footer-grid{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    width: 58%;
-    grid-gap: 5.67rem;
-    padding-top: 2rem;
-}
-
-.footer-grid-heading{
-    font-size: 1.05rem;
-    font-weight: bold;
-    color: var(--text-color);
-}
-
-ul{
+    justify-content: center;
     list-style-type: none;
 }
-.footer-link{
-    color: #777;
-    font-size: 0.875rem;
-}
-.footer-links-list{
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
-}
-.footer-grid-heading{
-    margin-bottom: 1.65rem;
-}
+.footerNav ul li a{
+    color:#111;
+    margin: 20px;
+    text-decoration: none;
+    font-size: 1.3em;
+    opacity: 0.7;
+    transition: 0.5s;
 
-.footer-copyright{
-    color: var(--gray);
-    font-size: 0.75rem;
-    padding-bottom: 2rem;
-    margin-top: 2rem;
-    padding-top: 1.15rem;
-    border-top: 1px solid #E5E7EB;
 }
-
-@media screen and (min-width:1080px) {
-    .footer{
+.footerNav ul li a:hover{
+    opacity: 1;
+}
+.footerBottom{
+    background-color:var(--light-page-color);
+    padding: 20px;
+    text-align: center;
+}
+.footerBottom p{
+    color:#111;
+}
+.designer{
+    opacity: 0.7;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 400;
+    margin: 0px 5px;
+}
+@media (max-width: 700px){
+    .footerNav ul{
         flex-direction: column;
-        align-items: center;
+    } 
+    .footerNav ul li{
+        width:100%;
+        text-align: center;
+        margin: 10px;
     }
-    .footer-top{
-        padding-left: 10rem;
-    }
-    .footer-grid{
-        align-self: center;
-        justify-content: space-evenly;
-    }
-}
-
-@media screen and (min-width:850px) {
-    .footer-top{
-        padding-left:2px;
-    }
-    .footer-grid{
-        grid-template-columns: repeat(2,1fr);
+    .socialIcons a{
+        padding: 8px;
+        margin: 4px;
     }
 }
-
 .scroll-to-top {
-    position: sticky;
+    position: fixed;
     bottom: 20px;
     right: 20px;
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
-    background-color: var(--primary-color);
-    color: var(--background-color);
-    font-size: 24px;
+    background-color:#181616;
+    color: whitesmoke;
+    border-color: #111;
+    font-size: 27px;
     border: none;
     outline: none;
     cursor: pointer;
     z-index: 999;
-    margin-left: 872px;
 }
 
-.scroll-to-top:hover {
-    background-color: #5254f8;
-}
+
 

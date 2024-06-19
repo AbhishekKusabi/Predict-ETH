@@ -16,28 +16,40 @@
     <!-- Lining email js -->
     <script src="{% static 'jquery-3.7.1.min.js' %}"></script>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    
+
 </head>
 <body>
-<div class="header">
-    <header class="header-content">
-        <a href="#logo" class="logo">
-            <img src="images\favicon-removebg-preview.png" alt="logoImage" class="logo-icon" />
-            <span class="logo-text">Predict ETH</span>
-        </a>
-        <nav class="nav">
-            <a href="#home" class="nav-link">Home</a>
-            <a href="#vision" class="nav-link">Vision</a>
-            <a href="#prediction" class="nav-link">Prediction</a>
-            <a href="#about" class="nav-link">About</a>
-        </nav>
-        <a href="#contact" class="contact-button">
-            Contact Us
-        </a>
-        <button type="button" class="menu-button">
-            <img src="images\Hamburger.svg" alt="menuButton" class="menu-icon" />
-        </button>
-    </header>
-</div>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid justify-content-center">
+        <a class="navbar-brand" href="#">
+            <img src="images\favicon-removebg-preview.png" alt="Logo" width="40" height="34" class="d-inline-block align-text-top">
+          Predict ETH
+          </a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#vision">Vision</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#prediction">Prediction</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#about">About</a>
+                </li>
+            </ul>
+            <button type="button" class="btn btn-dark" href="#contact">Contact Us</button>
+        </div>
+    </div>
+</nav>
+
 
 <div class="content">
     <section class="main-section" id="home">
@@ -135,6 +147,8 @@
     </div>
 </div>
 
+<hr>
+
 <div class="testimonial-container" id="vision">
     <div class="testimonial-content">
         <h2 class="testimonial-title" >
@@ -187,6 +201,9 @@
     </div>
 </div>
 
+
+<hr>
+
 <div class="predict-container" id="prediction">
     <section class="main-section">
         <div class="predict-content">
@@ -197,8 +214,9 @@
         </div>
         <div class="model-selection" >
             <form class="row" method="post">
-                <input type="date" id="date" onchange="updateValue()" class="date" >
-            </form>
+                {%csrf_token%}
+                <input type="date" id="date" onchange="updateValue()" class="date" > <br>
+            
             <div class="row">
                 <div class="result-box">
                     <div class="result-model" id="result_model">Price: $</div>
@@ -209,14 +227,42 @@
                 <div class="result-box">
                     <div class="result-model" id="result_low">Low: $</div>
                 </div>
+            </form>
             </div>
         </div>
     </section>
 </div>
 
+
+{% comment %} Chart View from Trading view {% endcomment %}
+
+<!-- TradingView Widget BEGIN -->
+<div class="tradingview-widget-container" style="height:50px;width:50px">
+    <div class="tradingview-widget-container__widget" style="height:calc(50% - 32px);width:50%"></div>
+    <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
+    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+    {
+    "autosize": true,
+    "symbol": "COINBASE:ETHUSD",
+    "timezone": "Asia/Kolkata",
+    "theme": "light",
+    "style": "2",
+    "locale": "en",
+    "withdateranges": true,
+    "range": "1D",
+    "allow_symbol_change": true,
+    "calendar": false,
+    "support_host": "https://www.tradingview.com"
+  }
+    </script>
+  </div>
+  <!-- TradingView Widget END -->
+
+<hr>
+
 <div class="about-us" id="about">
     <section class="about-main-section">
-        <div class="about-content-left"> <!-- Switched content-left and content-right -->
+        <div class="about-content-left"> 
             <h2 class="about-us-title">About Us</h2>
             <p class="about-us-text">
                 Welcome to Predict ETH, your trusted source for accurate and insightful Ethereum price predictions. At Predict ETH, we're passionate about empowering cryptocurrency traders with the information they need to make informed decisions in the dynamic world of digital assets.
@@ -232,7 +278,7 @@
                 Our mission at Predict ETH is simple: to provide reliable Ethereum price predictions backed by robust analysis and cutting-edge technology. We understand the challenges that traders face in navigating the volatile cryptocurrency markets, and we're committed to delivering actionable insights that help you stay ahead of the curve.
             </p>
         </div>
-        <div class="about-content-right"> <!-- Switched content-left and content-right -->
+        <div class="about-content-right"> 
             <div class="about-image-container">
                 <img src="images\Human Working.png" alt="sectionImage" class="about-section-image" />
             </div>
@@ -240,92 +286,95 @@
     </section>
 </div>
 
+<hr>
 
-<div class="newsletter-container" id="contact">
-    <div class="newsletter-content">
-        <div class="news-right">
-            <div class="news-info">
-                <h2 class="news-title">Contact Us</h2>
-            </div>
-            <form class="news-form" id="contact-form">
-                <input type="text" class="news-first-name" placeholder="First Name" />
-                <input type="text" class="news-middle-name" placeholder="Middle Name" />
-                <input type="email" class="news-email" placeholder="Email" / required>
-                <textarea class="news-message" placeholder="Message"></textarea>
-            </form>
-            <button type="submit" class="news-send-button" onsubmit="confirm">Submit</button>
-            <div class="privacy-policy">
-                By signing up you agree to our
-                <a href="#" class="news-link">Terms of Service</a>
-                and
-                <a href="#" class="news-link">Privacy policy</a>
-            </div>
-        </div>
+{% comment %} Contact us Form {% endcomment %}
+
+
+<div class="about-us" id="contact">
+    <section class="contact-main-section">
+        <div class="contact-content-left"> 
+            <h2 class="about-us-title">Contact Us</h2>
+<form action="https://api.web3forms.com/submit" method="POST" class="p-4 m-2">
+
+     <input type="hidden" name="access_key" value="69b77066-4dc7-48ec-893f-53897bf2104b">
+
+    <div class="row mb-2">
+      <label for="name" class="col-sm-2 col-form-label">Name </label>
+      <div class="col-sm-3">
+         <input type="text" name="name" required>
+      </div>
     </div>
-</div>
-<div id="message"></div>
-
-
-
-
-<div class="footer-container">
-    <footer class="footer">
-        <div class="footer-top">
-            <div class="comp-logo">
-                <div class="logo-link">
-                                    <img class="logo-svg" src="images\favicon-removebg-preview.png"/>
-                    <h3>Predict ETH</h3>
-                </div>
-            </div>
+    <div class="row mb-2">
+        <label for="email" class="col-sm-2 col-form-label">Email </label>
+        <div class="col-sm-3">
+            <input type="email" name="email" required>
         </div>
-        <div class="footer-grid">
-            <!-- column 1 -->
-            <div class="footer-grid-column">
-                <div class="footer-grid-heading">
-                    Support
-                </div>
-                <ul class="footer-links-list">
-                    <li>
-                        <a href="#overview" class="footer-link">Contact</a>
-                    </li>
-                    <li>
-                        <a href="#overview" class="footer-link">Documentation</a>
-                    </li>
-                    <li>
-                        <a href="#overview" class="footer-link">Chat</a>
-                    </li>
-                    <li>
-                        <a href="#overview" class="footer-link">FAQ</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- column 2-->
-            <div class="footer-grid-column">
-                <div class="footer-grid-heading">
-                    Legal
-                </div>
-                <ul class="footer-links-list">
-                    <li>
-                        <a href="#overview" class="footer-link">Terms of Service</a>
-                    </li>
-                    <li>
-                        <a href="#overview" class="footer-link">Privacy Policy</a>
-                    </li>
-                    <li>
-                        <a href="#overview" class="footer-link">Cookie Settings</a>
-                    </li>
-                </ul>
-            </div>
+      </div>
+      <div class="row mb-2">
+        <label for="textarea" class="col-sm-2 col-form-label textarea-20" required>Message Description</label>
+        <div class="col-sm-3">
+            <textarea name="message" required></textarea>
+
         </div>
-    </footer>
-    <div class="footer-copyright">
-        © 2024 - Present Predict ETH. All rights reserved.
+    <fieldset class="row mb-3">
+      <legend class="col-form-label col-sm-2 pt-0">Gender</legend>
+      <div class="col-sm-3">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" required>
+          <label class="form-check-label" for="gridRadios1">
+           Male
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+          <label class="form-check-label" for="gridRadios2">
+         Female
+          </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+            <label class="form-check-label" for="gridRadios2">
+          Others
+            </label>
+          </div>
+      </div>
+    </fieldset>
+
+      </div>
     </div>
-</div>
+    <button type="submit" class="btn btn-dark">Submit</button>
+  </form>
+  <hr>
+<footer>
+    <div class="footerContainer">
+        <div class="socialIcons">
+            <a href=""><i class="fa-brands fa-facebook"></i></a>
+            <a href=""><i class="fa-brands fa-instagram"></i></a>
+            <a href=""><i class="fa-brands fa-twitter"></i></a>
+             <a href=""><i class="fa-brands fa-youtube"></i></a>
+        </div>
+        <div class="footerNav">
+            <ul><li><a href="#home">Home</a></li>
+                <li><a href="">News</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </div>
+        
+    </div>
+    <div class="footerBottom">
+        <p>Copyright &copy;2024; Designed by <span class="designer">Team</span></p>
+    </div>
+</footer>
 <button onclick="scrollToTop()" class="scroll-to-top">&uparrow;</button>
 
-
-
 <script src="{% static 'script.js' %}"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+
 </body>
 </html>
+
