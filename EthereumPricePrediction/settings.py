@@ -23,7 +23,7 @@ ALLOWED_HOSTS = ['your-render-app.onrender.com', 'localhost']
 
 # Application definition
 INSTALLED_APPS = [
-    'mainapp.app',
+    'mainapp.apps.MainappConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -65,10 +65,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'EthereumPricePrediction.wsgi.application'
 
-# Remove the database configuration since you're not using a database
-# DATABASES = {
-#     'default': dj_database_url.config(default=os.getenv('DATABASE_URL'), conn_max_age=600, ssl_require=True)
-# }
+
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
