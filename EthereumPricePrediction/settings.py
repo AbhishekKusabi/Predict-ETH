@@ -16,10 +16,7 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-<<<<<<< HEAD
 
-
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -27,12 +24,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-=======
-# Use environment variables for secret key and debug settings
-SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'your-development-secret-key')
-DEBUG = os.getenv('DJANGO_DEBUG', 'False') == 'True'
-ALLOWED_HOSTS = ['your-render-app.onrender.com', 'localhost']
->>>>>>> db751651a22b9392734008d7a1c44f9161ab88dc
+
 
 # Application definition
 INSTALLED_APPS = [

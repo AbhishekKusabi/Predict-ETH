@@ -1,4 +1,3 @@
-# from http.client import HTTPResponse
 from django.http import HttpResponse, JsonResponse
 import requests
 from django.shortcuts import render
@@ -6,11 +5,9 @@ from datetime import datetime
 from .prediction import predict_prices_for_future_random_forest, predict_prices_for_future_extra_trees
 
 def home(request):
-<<<<<<< HEAD
-    return render(request,'index.html')
-=======
-   return render(request, 'mainapp/home.html')
->>>>>>> db751651a22b9392734008d7a1c44f9161ab88dc
+    # Choose the correct template to render
+    return render(request, 'home.html')
+
 
 def predict(request):
     if request.method == 'POST':
@@ -26,12 +23,9 @@ def predict(request):
             'predicted_high': predicted_high,
             'predicted_low': predicted_low
         })
-
     else:
         return HttpResponse(status=405)
     
-    
-
 
 def predict_ethereum_price(request):
     # Fetch current Ethereum price from an API
@@ -55,4 +49,4 @@ def predict_ethereum_price(request):
         'actual_price': actual_price,
     }
 
-    return render(request, 'index.html', context)
+    return render(request, 'home.html', context)  

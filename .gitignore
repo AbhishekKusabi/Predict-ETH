@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-.env
 
 myenv/
 
-db.sqlite3
-*.log
-=======
-myenv/
->>>>>>> db751651a22b9392734008d7a1c44f9161ab88dc
