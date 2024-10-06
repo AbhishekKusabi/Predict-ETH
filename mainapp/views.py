@@ -6,7 +6,11 @@ from datetime import datetime
 from .prediction import predict_prices_for_future_random_forest, predict_prices_for_future_extra_trees
 
 def home(request):
+<<<<<<< HEAD
     return render(request,'index.html')
+=======
+   return render(request, 'mainapp/home.html')
+>>>>>>> db751651a22b9392734008d7a1c44f9161ab88dc
 
 def predict(request):
     if request.method == 'POST':
