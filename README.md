@@ -1,27 +1,16 @@
-**Ethereum Price Prediction Project**
+# Ethereum Price Prediction
 
-This project predicts Ethereum's future prices based on historical data using machine learning models like Random Forest and Extra Trees. The data is sourced from an API for the last 365 days.
+## Project Overview
+This project predicts Ethereum prices using machine learning models, specifically Random Forest and Extra Trees. The model leverages data sourced from an API over a 365-day period.
 
-**Features**
+## Features
+- Predicts Ethereum price based on historical data.
+- Uses machine learning algorithms for accurate predictions.
 
-1.Predicts Ethereum prices based on the latest 365 days of data from an API.
-
-2.Machine learning models: Random Forest and Extra Trees.
-
-3.User-friendly web interface for viewing predictions.
-
-
-**Technologies Used**
-
-1.Python
-
-2.Django
-
-3.Random Forest and Extra Trees algorithms
-
-4.Pandas (for data handling)
-
-5.Scikit-learn (for machine learning models)
-
-6.Requests (for fetching data from the API)
+## Requirements
+- Python 3.9
+- Django
+- Pandas
+- NumPy
+- Scikit-learn
 
