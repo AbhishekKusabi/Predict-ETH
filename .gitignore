@@ -1,0 +1,6 @@
+.env
+
+myenv/
+
+db.sqlite3
+*.log

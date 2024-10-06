@@ -6,7 +6,7 @@ from datetime import datetime
 from .prediction import predict_prices_for_future_random_forest, predict_prices_for_future_extra_trees
 
 def home(request):
-    return render(request,'home.html')
+    return render(request,'index.html')
 
 def predict(request):
     if request.method == 'POST':
@@ -51,4 +51,4 @@ def predict_ethereum_price(request):
         'actual_price': actual_price,
     }
 
-    return render(request, 'home.html', context)
+    return render(request, 'index.html', context)
