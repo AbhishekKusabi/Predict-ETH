@@ -23,7 +23,7 @@ ALLOWED_HOSTS = ['your-render-app.onrender.com', 'localhost']
 
 # Application definition
 INSTALLED_APPS = [
-    'mainapp.apps.MainappConfig',
+    'mainapp.app',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
